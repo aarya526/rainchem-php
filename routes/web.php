@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +22,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::post('/categories/load-more', [HomeController::class, 'loadMoreCategories']);
+
+Route::get('/category/{categoryName}/{id}', [HomeController::class, 'viewCategoryPages']);
+
+Route::get('/view-product-details/{id}', [HomeController::class, 'viewSingleProductDetails']);
+
+Route::post('/add-to-cart', [CartController::class, 'addToCart']);
+
+Route::post('/update-cart-item', [CartController::class, 'updateCartItem']);
+
+Route::get('/delete-cart-item/{id}', [CartController::class, 'deleteCartItem']);
+
+Route::get('/view-cart', [CartController::class, 'viewCart']);
+
+Route::get('/checkout', [OrderController::class, 'checkout']);
+
+Route::post('/place-order', [OrderController::class, 'placeOrder']);
+
 Route::get('/aboutUs', [HomeController::class, 'aboutUs']);
 
 Route::get('/blog', [HomeController::class, 'blog']);
@@ -31,27 +54,24 @@ Route::get('/terms', [HomeController::class, 'terms']);
 
 Route::get('/vendorRegistration', [HomeController::class, 'vendorRegistration']);
 
-Route::prefix('/industry')->group(function () {
-    Route::get('/aircraftCleaning', [IndustryController::class, 'aircraftCleaning']);
-    Route::get('/animalFeeds', [IndustryController::class, 'animalFeeds']);
-    Route::get('/aquacultureHygiene', [IndustryController::class, 'aquacultureHygiene']);
-    Route::get('/ayurvedicHygiene', [IndustryController::class, 'ayurvedicHygiene']);
-    Route::get('/commercialLaundering', [IndustryController::class, 'commercialLaundering']);
-    Route::get('/construction', [IndustryController::class, 'construction']);
-    Route::get('/consumerHygiene', [IndustryController::class, 'consumerHygiene']);
-    Route::get('/dairyHygiene', [IndustryController::class, 'dairyHygiene']);
-    Route::get('/foodBeverage', [IndustryController::class, 'foodBeverage']);
-    Route::get('/foodManufacturing', [IndustryController::class, 'foodManufacturing']);
-    Route::get('/foodSafety', [IndustryController::class, 'foodSafety']);
-    Route::get('/houseKeeping', [IndustryController::class, 'houseKeeping']);
-    Route::get('/industrialEngymes', [IndustryController::class, 'industrialEngymes']);
-    Route::get('/industrialManufacturing', [IndustryController::class, 'industrialManufacturing']);
-    Route::get('/metalTreatment', [IndustryController::class, 'metalTreatment']);
-    Route::get('/pharmaHygiene', [IndustryController::class, 'pharmaHygiene']);
-    Route::get('/pharmaBioChemicals', [IndustryController::class, 'pharmaBioChemicals']);
-    Route::get('/railwayCleaning', [IndustryController::class, 'railwayCleaning']);
-    Route::get('/specialChemicals', [IndustryController::class, 'specialChemicals']);
-    Route::get('/waterTreatment', [IndustryController::class, 'waterTreatment']);
-    Route::get('/poultryHygiene', [IndustryController::class, 'poultryHygiene']);
-    Route::get('/laboratoryChemicals', [IndustryController::class, 'laboratoryChemicals']);
-});
+//Admin Routes
+Route::get('/admin/dashboard', [AdminHomeController::class, 'dashboard']);
+Route::get('/admin/view-products', [AdminProductController::class, 'viewProducts']);
+Route::get('/admin/add-product', [AdminProductController::class, 'addProduct'])->name('product.add');
+Route::post('/admin/create-product', [AdminProductController::class, 'createProduct'])->name('product.create');
+Route::get('/admin/edit-product/{id}', [AdminProductController::class, 'editProduct'])->name('product.edit');
+Route::put('/admin/edit-product', [AdminProductController::class, 'editProductPost'])->name('product.update');
+Route::get('/admin/view-categories', [AdminCategoryController::class, 'categories']);
+Route::get('/admin/add-category', [AdminCategoryController::class, 'addCategory'])->name('category.add');
+Route::post('/admin/create-category', [AdminCategoryController::class, 'createCategory'])->name('category.create');
+Route::get('/admin/edit-category/{id}', [AdminCategoryController::class, 'editCategory'])->name('category.edit');
+Route::put('/admin/edit-category', [AdminCategoryController::class, 'editCategoryPost'])->name('category.update');
+//End of Admin Routes
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
