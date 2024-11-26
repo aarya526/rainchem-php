@@ -56,7 +56,7 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
+            'strict' => false,
             'options'   => [
                 PDO::MYSQL_ATTR_SSL_KEY => env('DB_SSL_KEY'),
                 PDO::MYSQL_ATTR_SSL_CERT => env('DB_SSL_CERT'),
