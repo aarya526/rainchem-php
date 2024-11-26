@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="container">
         <div class="col-3">
-            <a href="/" class="footer-logo"><img src="/img/Logodup.png" alt="" /></a>
+            <a href="/" class="footer-logo"><img src="/img/rainchem registered logo.png" alt="" /></a>
         </div>
         <div class="col-3">
             <h4>Browse Links</h4>

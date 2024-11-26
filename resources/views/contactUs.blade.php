@@ -3,7 +3,7 @@
 @endpush
 @extends('common.main')
 @section('main-section')
-    <div class="hero-section" style="height: 347px;">
+    <div class="hero-section" style="height: 347px; background-image : url('/img/contact us (1).jpg');">
         <div class="hero-section-backdrop"></div>
         <div class="hero-information">
             <h1 class="hero-mainheading" style="font-size: 48px;">Contact Us</h1>

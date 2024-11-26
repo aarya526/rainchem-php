@@ -273,7 +273,8 @@
                 </div>
             </div>
             <div class="col-5">
-                <div class="form-section-1">
+                <div class="form-section-1" style="background-image: url('/img/contact us (1).jpg')">
+                    {{-- <div class="form-backdrop"></div> --}}
                     <h4>Contact Now for Contract Manufacturing</h4>
                     <form action="/contractManufacturing" class="contact-form-1" method="post">
                         <input type="text" name="company_name" class="input-field" placeholder="Company Name..."

@@ -2,14 +2,14 @@
 <div class="header-container">
     <div class="header-top">
         <div class="container">
-            <p>+91-8888888888 &nbsp;&nbsp;&nbsp;&nbsp;support@rainchem.com</p>
+            <p>+91-9560177400/9810318183 &nbsp;&nbsp;&nbsp;&nbsp;support@rainchem.com</p>
         </div>
     </div>
     <div class="header-bottom">
         <div class="container">
             <div class="navbar-container">
                 <div class="logo">
-                    <a href="/"><img src="/img/Logodup.png" alt=""></a>
+                    <a href="/"><img src="/img/rainchem new logo.png" alt=""></a>
                 </div>
                 <div class="navbar-right-container">
                     {{-- <div class="container"> --}}

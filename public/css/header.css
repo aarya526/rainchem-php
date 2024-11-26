@@ -35,6 +35,11 @@
     align-items: center;
 }
 
+.header-bottom .logo img {
+    max-width: 180px;
+    height: auto;
+}
+
 .navbar-container {
     display: flex;
     align-items: center;
@@ -374,6 +379,7 @@
     .footer-logo img {
         width: 50%;
         margin: 0 auto;
+        display: flex;
     }
 
 }

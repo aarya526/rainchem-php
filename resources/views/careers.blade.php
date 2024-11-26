@@ -36,7 +36,7 @@
             <div class="col-6">
                 <div class="about-us-image-section-1">
                     <div class="about-us-image-section-1-backdrop"></div>
-                    <img src="/img/image (1).png" alt="" />
+                    <img src="/img/career at rainchem images.jpg" alt="" />
                 </div>
             </div>
         </div>

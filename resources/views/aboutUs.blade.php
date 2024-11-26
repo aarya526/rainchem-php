@@ -108,7 +108,7 @@
             <div class="col-6">
                 <div class="about-us-image-section-1">
                     <div class="about-us-image-section-1-backdrop"></div>
-                    <img src="/img/image 12 (1).png" alt="" />
+                    <img src="/img/caring for the planet images.jpg" alt="" />
                 </div>
             </div>
             <div class="col-6">
