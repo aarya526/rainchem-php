@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
 
 * {
     margin: 0;
@@ -97,8 +98,8 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    background: #FB0605;
-    opacity: 0.2;
+    background: #333333;
+    opacity: 0.5;
     /* display: none; */
 }
 
@@ -131,10 +132,12 @@ video#bgVideo {
 
 .hero-section .hero-information .hero-mainheading {
     color: #fff;
-    font-size: 60px;
+    font-family: "DM Serif Text", serif;
+    font-style: italic;
     text-align: center;
     font-weight: 400;
     line-height: 1.6;
+    font-size: 60px;
 }
 
 .hero-section .hero-information .hero-para {
@@ -319,7 +322,7 @@ video#bgVideo {
 }
 
 .feature-card-4 p {
-    color: #aaaaaa;
+    color: #616161;
     font-size: 15px;
 }
 
@@ -338,8 +341,20 @@ video#bgVideo {
     padding: 44px;
     border-radius: 10px;
     display: flex;
+    position: relative;
     flex-direction: column;
     gap: 18px;
+    overflow: hidden;
+}
+
+.form-section-1 .form-backdrop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    background: #333333;
 }
 
 .feature-card-service-section .heading-section {
@@ -377,8 +392,15 @@ video#bgVideo {
     padding: 50px;
 }
 
-.feature-card-5 h1 {
+.feature-card-5 .counter {
     font-size: 50px;
+}
+
+.feature-card-5 .metric-flex {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    align-items: baseline;
 }
 
 .feature-card-5 h4 {
@@ -445,12 +467,14 @@ video#bgVideo {
 .form-section-1 h4 {
     color: #fff;
     font-size: 18px;
+    z-index: 1;
 }
 
 .contact-form-1 {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    z-index: 1;
 }
 
 .contact-form-1 .input-field {
@@ -572,7 +596,7 @@ video#bgVideo {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #FB0605;
+    background-color: #333333;
     opacity: 0.2;
 }
 
@@ -950,6 +974,25 @@ a.cart-delete {
     .hero-section .hero-information {
         width: 100%;
     }
+
+    .feature-card-4-wrapper,
+    .about-us-image-section-1,
+    .feature-card-service-section,
+    .business-categories-card,
+    .form-section-1,
+    .feature-card-2 {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-section-1 {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .about-us-image-section-1 {
+        height: 400px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -963,6 +1006,10 @@ a.cart-delete {
 
     .feature-section-5 .feature-card-5 {
         width: 100%;
+    }
+
+    .hero-section .hero-information .hero-mainheading {
+        font-size: 50px;
     }
 
 

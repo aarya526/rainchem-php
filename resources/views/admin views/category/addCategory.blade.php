@@ -10,6 +10,11 @@
             </div>
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            <div>{{ session('success') }}</div>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="header">
                             <h2>Fill all mandatory details</h2>
@@ -69,17 +74,37 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <h3>click to upload paragraph image.</h3>
+                                        <h3>click to upload Thumbnail.</h3>
+                                        @if ($category->categoryThumbnailImageUrl)
+                                            <img src="{{ Storage::url($category->categoryThumbnailImageUrl) }}"
+                                                class="img img-thumbnail" style="width: 100px;" alt="">
+                                        @endif
                                         <div class="fallback">
-                                            <input name="categoryParagraphImage" type="file" />
+                                            <input name="categoryThumbnailImageUrl" type="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <h3>click to upload paragraph image.</h3>
+                                        @if ($category->categoryPageContentImageUrl)
+                                            <img src="{{ Storage::url($category->categoryPageContentImageUrl) }}"
+                                                class="img img-thumbnail" style="width: 100px;" alt="">
+                                        @endif
+                                        <div class="fallback">
+                                            <input name="categoryPageContentImageUrl" type="file" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <h3>click to upload hero image.</h3>
+                                        @if ($category->categoryPageHeroImage)
+                                            <img src="{{ Storage::url($category->categoryPageHeroImage) }}"
+                                                class="img img-thumbnail" style="width: 100px;" alt="">
+                                        @endif
                                         <div class="fallback">
-                                            <input name="categoryHeroImage" type="file" />
+                                            <input name="categoryPageHeroImage" type="file" />
                                         </div>
                                     </div>
                                 </div>

@@ -12,14 +12,14 @@ class HomeController extends Controller
 
     public function index()
     {
-        $categories = category::paginate(4);
+        $categories = category::where('isActive', 1)->paginate(4);
         return view('index', compact('categories'));
     }
 
     public function loadMoreCategories(Request $request)
     {
         $skip = $request->input('skip'); // Tracks how many categories to skip
-        $categories = category::skip($skip)->take(8)->get(); // Load 8 more categories
+        $categories = category::where('isActive', 1)->skip($skip)->take(8)->get(); // Load 8 more categories
         return response()->json($categories);
     }
 

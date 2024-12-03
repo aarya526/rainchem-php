@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('categoryPageContentImageUrl')->nullable();
             $table->string('categoryAdditionalFileUrl')->nullable();
             $table->string('categoryPageHeroImage')->nullable();
+            $table->string('categoryThumbnailImageUrl')->nullable();
             $table->boolean('isActive')->default(0);
         });
     }

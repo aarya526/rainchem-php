@@ -292,7 +292,7 @@
                        </a>
                    </li>
 
-                   <li class="active">
+                   {{-- <li class="active">
                        <a href="javascript:void(0);" class="menu-toggle">
                            <i class="material-icons">assignment</i>
                            <span>Users</span>
@@ -305,7 +305,7 @@
                                <a href="/admin/add-user">Add Users</a>
                            </li>
                        </ul>
-                   </li>
+                   </li> --}}
                    <li class="active">
                        <a href="javascript:void(0);" class="menu-toggle">
                            <i class="material-icons">assignment</i>

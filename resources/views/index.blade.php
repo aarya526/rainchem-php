@@ -75,7 +75,7 @@
             <div class="col-6">
                 <div class="about-us-image-section-1">
                     <div class="about-us-image-section-1-backdrop"></div>
-                    <img src="/img/image 11 (1).png" alt="" />
+                    <img src="/img/chemical image.jpg" alt="" />
                 </div>
             </div>
         </div>
@@ -83,22 +83,37 @@
     <div class="feature-section-5">
         {{-- <div class="container"> --}}
         <div class="feature-card-5 black-scheme-1">
-            <h1>100+</h1>
+            <div class="metric-flex">
+                <div class="counter" data-target="100">0</div>
+                <span style="font-size: 30px;">+</span>
+            </div>
             <h4>Products</h4>
         </div>
         <div class="feature-card-5 black-scheme-2">
-            <h1>4.5</h1>
+            <div class="metric-flex">
+                <div class="counter" data-target="4.5">0</div>
+                <span style="font-size: 30px;">/5</span>
+            </div>
+            {{-- <h1>4.5</h1> --}}
             <h4>Customer Rate</h4>
         </div>
         <div class="feature-card-5 black-scheme-3">
             <h4>Infinite Custom Solutions</h4>
         </div>
         <div class="feature-card-5 black-scheme-4">
-            <h1>25+</h1>
-            <h4>Year</h4>
+            <div class="metric-flex">
+                <div class="counter" data-target="25">0</div>
+                <span style="font-size: 30px;">+</span>
+            </div>
+            {{-- <h1>25+</h1> --}}
+            <h4>Years</h4>
         </div>
         <div class="feature-card-5 black-scheme-5">
-            <h1>99%</h1>
+            <div class="metric-flex">
+                <div class="counter" data-target="99">0</div>
+                <span style="font-size: 30px;">%</span>
+            </div>
+            {{-- <h1>99%</h1> --}}
             <h4>Satisfaction Rate</h4>
         </div>
         {{-- </div> --}}
@@ -109,7 +124,11 @@
             <div class="col-6">
                 <div class="about-us-image-section-1">
                     <div class="about-us-image-section-1-backdrop"></div>
-                    <img src="/img/image 11 (1).png" alt="" />
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/InPTvqsLtCI"
+                        style="z-index: 99;" title="Rainchem : Who we are?" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
             <div class="col-6">
@@ -138,7 +157,8 @@
                     </div>
                     <div class="feature-card-4">
                         <p>We embrace a "Think Global, Act Local" philosophy here at
-                            Rainchem. Our executives work closely with clients, paying attention to regional requirements
+                            Rainchem. Our executives work closely with clients, paying attention to regional
+                            requirements
                             and developing goods that
                             are both standardized and appealing globally while also
                             being commercially feasible for regional markets. The lives of
@@ -225,30 +245,40 @@
             <div class="col-12">
                 <div class="heading-section-1">
                     <h1 class="main-heading">Our Business Categories</h1>
-                    <p class="sub-heading">Impeccable Solutions, Competitive Pricing, Bio-degradable Products, Nationwide
+                    <p class="sub-heading">Impeccable Solutions, Competitive Pricing, Bio-degradable Products,
+                        Nationwide
                         Sales & Distribution Network</p>
                 </div>
             </div>
         </div>
-        <div class="container" id="category-div-paginate">
-            @foreach ($categories as $c)
-                <div class="col-3">
-                    <div class="business-categories-card">
-                        <img src="/img/image 5.png" alt="" />
-                        <div class="business-categories-details">
-                            <h4>{{ $c->categoryName }}</h4>
-                            <a href="/category/{{ $c->categoryName }}/{{ $c->category_id }}">Read More <i
-                                    class="fa-solid fa-right-long"></i></a>
+        @if ($categories->count() >= 1)
+            <div class="container" id="category-div-paginate">
+                @foreach ($categories as $c)
+                    <div class="col-3">
+                        <div class="business-categories-card">
+                            {{-- <img src="/img/image 5.png" alt="" /> --}}
+                            <img src="{{ Storage::url($c->categoryThumbnailImageUrl) }}" alt="" />
+                            <div class="business-categories-details">
+                                <h4>{{ $c->categoryName }}</h4>
+                                <a href="/category/{{ $c->categoryName }}/{{ $c->category_id }}">Read More <i
+                                        class="fa-solid fa-right-long"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-        <div class="container">
-            <div class="col-12" style="display: flex; justify-content:center;">
-                <button id="load-more-categories" class="btn btn-black">Load More</button>
+                @endforeach
             </div>
-        </div>
+            <div class="container">
+                <div class="col-12" style="display: flex; justify-content:center;">
+                    <button id="load-more-categories" class="btn btn-black">Load More</button>
+                </div>
+            </div>
+        @else
+            <div class="container">
+                <div class="col-12">
+                    <h4 style="text-align: center">No Categories Uploaded!</h4>
+                </div>
+            </div>
+        @endif
     </div>
 
 
@@ -268,13 +298,14 @@
                             scope for private labeling.Companies interested in private labeling/manufacturing
                             arrangement
                             may write at enquiry@rainchem.com</p>
-                        <a href="#" class="btn btn-red">Learn More</a>
+                        <a href="#" class="btn btn-black">Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="col-5">
-                <div class="form-section-1" style="background-image: url('/img/contact us (1).jpg')">
-                    {{-- <div class="form-backdrop"></div> --}}
+                <div class="form-section-1"
+                    style="background-image: url('/img/contact now for contract manufacturing hero images-.jpg')">
+                    <div class="form-backdrop"></div>
                     <h4>Contact Now for Contract Manufacturing</h4>
                     <form action="/contractManufacturing" class="contact-form-1" method="post">
                         <input type="text" name="company_name" class="input-field" placeholder="Company Name..."

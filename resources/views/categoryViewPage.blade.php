@@ -3,7 +3,8 @@
 @endpush
 @extends('common.main')
 @section('main-section')
-    <div class="hero-section" style="height: 347px;">
+    <div class="hero-section"
+        style="height: 347px; background: url({{ Storage::url($c->categoryPageHeroImage) }}) !important;">
         <div class="hero-section-backdrop"></div>
         <div class="hero-information">
             <h1 class="hero-mainheading" style="font-size: 48px;">{{ $c->categoryName }}</h1>
@@ -37,7 +38,7 @@
             <div class="col-6">
                 <div class="about-us-image-section-1">
                     <div class="about-us-image-section-1-backdrop"></div>
-                    <img src="/img/image 11 (1).png" alt="" />
+                    <img src="{{ Storage::url($c->categoryPageContentImageUrl) }}" alt="" />
                 </div>
             </div>
         </div>

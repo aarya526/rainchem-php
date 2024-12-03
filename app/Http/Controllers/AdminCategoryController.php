@@ -33,6 +33,14 @@ class AdminCategoryController extends Controller
         $category->categoryDescription = $request['categoryDescription'];
         $category->isActive = $request['isActive'];
 
+
+        // Handle file upload for Thumbnail image
+        if ($request->hasFile('categoryThumbnailImageUrl')) {
+            $image = $request->file('categoryThumbnailImageUrl');
+            $imagePath = $image->store('categoryThumbnailImages', 'public'); // Store in 'storage/app/public/products'
+            $category->categoryThumbnailImageUrl = $imagePath;
+        }
+
         // Handle file upload for para image
         if ($request->hasFile('categoryParagraphImage')) {
             $image = $request->file('categoryParagraphImage');
@@ -40,7 +48,7 @@ class AdminCategoryController extends Controller
             $category->categoryPageContentImageUrl = $imagePath;
         }
 
-        
+
         // Handle file upload for hero image
         if ($request->hasFile('categoryHeroImage')) {
             $image = $request->file('categoryHeroImage');
@@ -67,31 +75,44 @@ class AdminCategoryController extends Controller
         $category->categoryDescription = $request['categoryDescription'];
         $category->isActive = $request['isActive'];
 
+        // Handle file upload for Thumbnail image
+        if ($request->hasFile('categoryThumbnailImageUrl')) {
+            // Delete the old image if it exists
+            if ($category->categoryThumbnailImageUrl) {
+                Storage::disk('public')->delete($category->categoryThumbnailImageUrl);
+            }
+
+            $image = $request->file('categoryThumbnailImageUrl');
+            $imagePath = $image->store('categoryThumbnailImages', 'public'); // Store in 'storage/app/public/products'
+            $category->categoryThumbnailImageUrl = $imagePath;
+        }
+
         // Handle file upload for paragraph image
-        if ($request->hasFile('categoryParagraphImage')) {
+        if ($request->hasFile('categoryPageContentImageUrl')) {
             // Delete the old image if it exists
             if ($category->categoryPageContentImageUrl) {
                 Storage::disk('public')->delete($category->categoryPageContentImageUrl);
             }
 
-            $image = $request->file('categoryParagraphImage');
+            $image = $request->file('categoryPageContentImageUrl');
             $imagePath = $image->store('categoryParaImages', 'public'); // Store in 'storage/app/public/products'
             $category->categoryPageContentImageUrl = $imagePath;
         }
 
         // Handle file upload for hero image
-        if ($request->hasFile('categoryHeroImage')) {
+        if ($request->hasFile('categoryPageHeroImage')) {
             // Delete the old image if it exists
             if ($category->categoryPageHeroImage) {
                 Storage::disk('public')->delete($category->categoryPageHeroImage);
             }
 
-            $image = $request->file('categoryHeroImage');
+            $image = $request->file('categoryPageHeroImage');
             $imagePath = $image->store('categoryHeroImage', 'public'); // Store in 'storage/app/public/products'
             $category->categoryPageHeroImage = $imagePath;
         }
 
         $category->save();
-        return redirect('/admin/view-categories')->with('success', 'Category Updated Successfully!');
+        // return redirect('/admin/view-categories')->with('success', 'Category Updated Successfully!');
+        return redirect()->route('category.edit', $category->category_id)->with('success', 'Category Updated Successfully!');
     }
 }

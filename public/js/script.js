@@ -57,10 +57,10 @@ document.getElementById('load-more-categories').addEventListener('click', functi
             data.forEach(category => {
                 result += "<div class='col-3'>";
                 result += "<div class='business-categories-card'>";
-                result += "<img src='/img/image 5.png' alt=''/>";
+                result += "<img src='/storage/" + category.categoryThumbnailImageUrl + "' alt=''/>";
                 result += "<div class='business-categories-details'>";
                 result += "<h4>" + category.categoryName + "</h4>";
-                result += "<a href='/category/'" + category.categoryName + "/" + category.category_id + "'>Read More <i class='fa-solid fa-right-long'></i></a>";
+                result += "<a href='/category/" + category.categoryName + "/" + category.category_id + "'>Read More <i class='fa-solid fa-right-long'></i></a>";
                 result += "</div>";
                 result += "</div>";
                 result += "</div>";
@@ -72,4 +72,47 @@ document.getElementById('load-more-categories').addEventListener('click', functi
             }
         });
 
+});
+
+$(document).ready(function () {
+    // Function to animate the counter
+    function countUp($element) {
+        var target = $element.data('target');
+        var current = 0;
+        var speed = 200; // The speed at which the numbers count up
+
+        var increment = target / speed;
+
+        function updateCount() {
+            current += increment;
+            if (current < target) {
+                $element.text(Math.floor(current));
+                requestAnimationFrame(updateCount);
+            } else {
+                $element.text(target); // Set the final number to ensure it matches exactly
+            }
+        }
+
+        updateCount();
+    }
+
+    // Check if counter is in view
+    function checkInView() {
+        $('.counter').each(function () {
+            var $this = $(this);
+            var offsetTop = $this.offset().top;
+            var windowHeight = $(window).height();
+            var scrollTop = $(window).scrollTop();
+
+            if (offsetTop < (scrollTop + windowHeight) && !$this.hasClass('counted')) {
+                // Animate if in view and not already counted
+                countUp($this);
+                $this.addClass('counted');
+            }
+        });
+    }
+
+    // Trigger on scroll and on page load
+    $(window).on('scroll', checkInView);
+    checkInView(); // Also check on page load
 });
