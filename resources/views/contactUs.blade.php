@@ -28,23 +28,23 @@
             <div class="col-4">
                 <div class="contact-details">
                     <div class="address">
-                        <h4 class="contact-logo"><i class="fa-solid fa-house"></i></h4>
+                        <h4 class="contact-logo"><i class="fa-solid fa-location-dot"></i></h4>
                         <div class="state">
                             <h4>Uttar Pradesh, India</h4>
-                            <p>14-238, Noida</p>
+                            <p>A-35, Sector 7, Noida</p>
                         </div>
                     </div>
                     <div class="address">
                         <h4 class="contact-logo"><i class="fa-solid fa-phone"></i></h4>
                         <div class="state">
-                            <h4>+91-999999999</h4>
+                            <h4>+91-9560177400/9810318183</h4>
                             <p>Mon-Sat, 9:00 am - 6.30pm</p>
                         </div>
                     </div>
                     <div class="address">
                         <h4 class="contact-logo"><i class="fa-solid fa-envelope"></i></h4>
                         <div class="state">
-                            <h4>rainchem@gmail.com</h4>
+                            <h4>services@rainchem.com</h4>
                             <p>Send us your query anytime!</p>
                         </div>
                     </div>
@@ -52,24 +52,32 @@
             </div>
             <div class="col-8">
                 <div class="career-form-section">
-                    <form action="/" class="career-form" method="post">
+                    @if (session('Success'))
+                        <div class="form-message form-success" style="display: block;">
+                            <div>{{ session('Success') }}</div>
+                        </div>
+                    @endif
+                    <form action="/contactUsFormSubmit" class="career-form" method="POST" id="contactSubmitForm">
+                        @csrf
                         <div class="container" style="align-items: center;">
                             <div class="col-6"
                                 style="display: flex; flex-direction: column; gap: 14px; align-items: center;">
                                 <input type="text" name="full_name" id="" class="input-field"
-                                    placeholder="Full Name*" />
+                                    placeholder="Full Name*" required />
                                 <input type="email" name="email" id="" class="input-field"
-                                    placeholder="Email Address*" />
+                                    placeholder="Email Address*" required />
                                 <input type="number" name="phone" id="" class="input-field"
-                                    placeholder="Phone Number*" />
+                                    placeholder="Phone Number*" required />
                                 <input type="text" name="company_name" id="" class="input-field"
                                     placeholder="Company Name (optional)*" />
                             </div>
                             <div class="col-6" style="display: flex; flex-direction: column; gap: 14px;">
                                 <input type="text" name="subject" id="" class="input-field"
-                                    placeholder="Subject*" />
-                                <textarea name="message" id="" cols="30" rows="4" class="input-field" placeholder="Message*"></textarea>
-                                <button type="submit" class="btn btn-red">Send Message</button>
+                                    placeholder="Subject*" required />
+                                <textarea name="message" id="" cols="30" rows="4" class="input-field" placeholder="Message*"
+                                    required></textarea>
+                                <button type="submit" class="btn btn-red" id="contactSubmitFormButton">Send
+                                    Message</button>
                             </div>
                         </div>
                     </form>

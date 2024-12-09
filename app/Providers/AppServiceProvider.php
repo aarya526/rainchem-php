@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
         //
         view()->composer('*', function ($view) {
 
-            $specificCategoryName = ['Food Safety and Kitchen Hygiene', 'House Keeping and Building Care', 'Commercial Laundering and Fabric Care'];
+            $specificCategoryName = ['Food Safety & Kitchen Hygiene', 'House Keeping & Building Care', 'Commercial Laundering & Fabric Care'];
             $specificCategories = Category::where('isActive', 1)->whereIn('categoryName', $specificCategoryName)->get();
             $otherCategories = Category::where('isActive', 1)->whereNotIn('categoryName', $specificCategoryName)->get();
             $view->with('specificCategories', $specificCategories);

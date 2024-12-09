@@ -11,29 +11,29 @@
         {{-- <div class="hero-section-backdrop"></div> --}}
         <div class="hero-information">
             {{-- <h4 class="hero-subheading">INDUSTRY-LEADING CLEANING SOLUTIONS</h4> --}}
-            <h1 class="hero-mainheading">Customising Solutions <br /> Through <br />Engineering Excellence</h1>
+            <h1 class="hero-mainheading">Customising Solutions Through <br />Engineering Excellence</h1>
             {{-- <p class="hero-para">Rainchem provides high-performance cleaning and hygiene solutions tailored to
                 ensure a
                 cleaner, safer
-                environment.</p> --}}
+                environment.</p>
             {{-- <a href="#" class="btn btn-red">Explore Our Products</a> --}}
         </div>
         <div class="hero-stats-section">
             <div class="single-hero-stats">
                 <img src="/img/molecular.png" alt="" />
-                <h4>HIGH QUALITY CHEMICALS</h4>
+                <h4>High Quality Chemicals</h4>
             </div>
             <div class="single-hero-stats">
                 <img src="/img/molecule (1).png" alt="" />
-                <h4>EXCELLENCE SERVICES</h4>
+                <h4>Excellent Services</h4>
             </div>
             <div class="single-hero-stats">
                 <img src="/img/molecule.png" alt="" />
-                <h4>GOOD MANUFACTURING</h4>
+                <h4>Good Manufacturing</h4>
             </div>
             <div class="single-hero-stats">
                 <img src="/img/chemical.png" alt="" />
-                <h4>SUSTAINABILITY</h4>
+                <h4>Sustainability</h4>
             </div>
 
         </div>
@@ -46,8 +46,8 @@
                     <div class="heading-section-2">
                         {{-- <h4>We Strive to Positively Impact The World
                             Around Us</h4> --}}
-                        <h1>We Strive to Positively Impact The World
-                            Around Us</h1>
+                        <h1>We strive to positively impact the world
+                            around us</h1>
                     </div>
                     <div class="feature-card-4">
                         <p>We have embarked on a bold mission. We think big and we
@@ -84,25 +84,30 @@
         {{-- <div class="container"> --}}
         <div class="feature-card-5 black-scheme-1">
             <div class="metric-flex">
-                <div class="counter" data-target="100">0</div>
+                <div class="counter" data-target="140">0</div>
                 <span style="font-size: 30px;">+</span>
             </div>
             <h4>Products</h4>
         </div>
         <div class="feature-card-5 black-scheme-2">
             <div class="metric-flex">
-                <div class="counter" data-target="4.5">0</div>
+                <div class="counter" data-target="4.8">0</div>
                 <span style="font-size: 30px;">/5</span>
             </div>
             {{-- <h1>4.5</h1> --}}
             <h4>Customer Rate</h4>
         </div>
         <div class="feature-card-5 black-scheme-3">
-            <h4>Infinite Custom Solutions</h4>
+            <div class="metric-flex">
+                <div class="counter" data-target="1100">0</div>
+                <span style="font-size: 30px;">+</span>
+            </div>
+            {{-- <h1>4.5</h1> --}}
+            <h4>Customer</h4>
         </div>
         <div class="feature-card-5 black-scheme-4">
             <div class="metric-flex">
-                <div class="counter" data-target="25">0</div>
+                <div class="counter" data-target="24">0</div>
                 <span style="font-size: 30px;">+</span>
             </div>
             {{-- <h1>25+</h1> --}}
@@ -114,7 +119,7 @@
                 <span style="font-size: 30px;">%</span>
             </div>
             {{-- <h1>99%</h1> --}}
-            <h4>Satisfaction Rate</h4>
+            <h4>End-User Satisfaction Index Rate</h4>
         </div>
         {{-- </div> --}}
     </div>
@@ -176,8 +181,8 @@
         <div class="container">
             <div class="col-12">
                 <div class="heading-section-1">
-                    <h1 class="main-heading">Services</h1>
-                    <p class="sub-heading">WHY CHOOSE RAINCHEM</p>
+                    <h1 class="main-heading">Why Rainchem?</h1>
+                    {{-- <p class="sub-heading">Adding immense value through</p> --}}
                 </div>
             </div>
         </div>
@@ -186,7 +191,7 @@
                 <div class="feature-card-service-section">
                     <div class="heading-section">
                         <h4 class="icon"><i class="fa-solid fa-binoculars"></i></h4>
-                        <h4>Focused Impact</h4>
+                        <h4>Focused Approach</h4>
                     </div>
                     <p>Delivering impactful solutions for various industry and societal needs</p>
                 </div>
@@ -203,7 +208,8 @@
             <div class="col-6">
                 <div class="feature-card-service-section">
                     <div class="heading-section">
-                        <h4 class="icon"><i class="fa-solid fa-binoculars"></i></h4>
+                        {{-- <h4 class="icon"><i class="fa-solid fa-binoculars"></i></h4> --}}
+                        <h4 class="icon"><i class="fa-solid fa-chart-line"></i></h4>
                         <h4>Efficient Operations</h4>
                     </div>
                     <p>Emphasizing efficiency and cost-effectiveness in our strategies.</p>
@@ -212,7 +218,8 @@
             <div class="col-6">
                 <div class="feature-card-service-section">
                     <div class="heading-section">
-                        <h4 class="icon"><i class="fa-solid fa-binoculars"></i></h4>
+                        {{-- <h4 class="icon"><i class="fa-solid fa-binoculars"></i></h4> --}}
+                        <h4 class="icon"><i class="fa-regular fa-face-smile"></i></h4>
                         <h4>Trustworthy Approach</h4>
                     </div>
                     <p>Orchestrating client-centered solutions with trust and honesty.</p>
@@ -244,7 +251,7 @@
         <div class="container">
             <div class="col-12">
                 <div class="heading-section-1">
-                    <h1 class="main-heading">Our Business Categories</h1>
+                    <h1 class="main-heading">Business Categories</h1>
                     <p class="sub-heading">Impeccable Solutions, Competitive Pricing, Bio-degradable Products,
                         Nationwide
                         Sales & Distribution Network</p>
@@ -298,7 +305,7 @@
                             scope for private labeling.Companies interested in private labeling/manufacturing
                             arrangement
                             may write at enquiry@rainchem.com</p>
-                        <a href="#" class="btn btn-black">Learn More</a>
+                        {{-- <a href="#" class="btn btn-black">Learn More</a> --}}
                     </div>
                 </div>
             </div>
@@ -307,7 +314,11 @@
                     style="background-image: url('/img/contact now for contract manufacturing hero images-.jpg')">
                     <div class="form-backdrop"></div>
                     <h4>Contact Now for Contract Manufacturing</h4>
-                    <form action="/contractManufacturing" class="contact-form-1" method="post">
+                    <div class="form-message">
+                        <h4>Your Request has been submitted! We will revert shortly.</h4>
+                    </div>
+                    <form id="contractForm" class="contact-form-1" method="post">
+                        @csrf
                         <input type="text" name="company_name" class="input-field" placeholder="Company Name..."
                             required />
                         <input type="text" name="full_name" class="input-field" placeholder="Full Name..."

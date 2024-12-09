@@ -74,6 +74,18 @@
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                        <h3>click to upload product catalogue.</h3>
+                                        @if ($category->categoryAdditionalFileUrl)
+                                            <img src="{{ Storage::url($category->categoryAdditionalFileUrl) }}"
+                                                class="img img-thumbnail" style="width: 100px;" alt="">
+                                        @endif
+                                        <div class="fallback">
+                                            <input name="categoryAdditionalFileUrl" type="file" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <h3>click to upload Thumbnail.</h3>
                                         @if ($category->categoryThumbnailImageUrl)
                                             <img src="{{ Storage::url($category->categoryThumbnailImageUrl) }}"

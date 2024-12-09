@@ -33,6 +33,12 @@ class AdminCategoryController extends Controller
         $category->categoryDescription = $request['categoryDescription'];
         $category->isActive = $request['isActive'];
 
+        // Handle file upload for PDF
+        if ($request->hasFile('categoryAdditionalFileUrl')) {
+            $image = $request->file('categoryAdditionalFileUrl');
+            $imagePath = $image->store('catalogue', 'public'); // Store in 'storage/app/public/products'
+            $category->categoryAdditionalFileUrl = $imagePath;
+        }
 
         // Handle file upload for Thumbnail image
         if ($request->hasFile('categoryThumbnailImageUrl')) {
@@ -74,6 +80,18 @@ class AdminCategoryController extends Controller
         $category->categoryPageMainHeading = $request['categoryPageMainHeading'];
         $category->categoryDescription = $request['categoryDescription'];
         $category->isActive = $request['isActive'];
+
+        // Handle file upload for PDF File
+        if ($request->hasFile('categoryAdditionalFileUrl')) {
+            // Delete the old image if it exists
+            if ($category->categoryAdditionalFileUrl) {
+                Storage::disk('public')->delete($category->categoryAdditionalFileUrl);
+            }
+
+            $image = $request->file('categoryAdditionalFileUrl');
+            $imagePath = $image->store('catalogue', 'public'); // Store in 'storage/app/public/products'
+            $category->categoryAdditionalFileUrl = $imagePath;
+        }
 
         // Handle file upload for Thumbnail image
         if ($request->hasFile('categoryThumbnailImageUrl')) {
