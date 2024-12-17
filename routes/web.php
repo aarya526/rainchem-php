@@ -58,6 +58,10 @@ Route::post('/contractManufacturingForm', [HomeController::class, 'submitContrac
 
 Route::post('/contactUsFormSubmit', [HomeController::class, 'submitContactForm']);
 
+Route::post('/contractManufacturingForm', [HomeController::class, 'submitContractForm']);
+
+Route::post('/contactUsFormSubmit', [HomeController::class, 'submitContactForm']);
+
 Route::get('/requestaquote', [HomeController::class, 'requestaquoteForm']);
 
 Route::post('/requestaquotePost', [HomeController::class, 'requestaquoteFormPost']);
