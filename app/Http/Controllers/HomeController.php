@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\ContactUs;
 use App\Models\ContractManufacturing;
-<<<<<<< HEAD
 use App\Models\CustomerSupport;
-=======
->>>>>>> a0cdf8c882511000fac8e861652df1ac7876b66b
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
@@ -56,14 +53,9 @@ class HomeController extends Controller
             'message' => 'required|string|max:255',
             'email' => 'required|email|max:255',
         ]);
-<<<<<<< HEAD
         $contractForm = new CustomerSupport();
         $contractForm->supportType = "contract";
         $contractForm->company = $request->company_name;
-=======
-        $contractForm = new ContractManufacturing();
-        $contractForm->companyName = $request->company_name;
->>>>>>> a0cdf8c882511000fac8e861652df1ac7876b66b
         $contractForm->fullName = $request->full_name;
         $contractForm->phone = $request->phone;
         $contractForm->email = $request->email;
@@ -97,11 +89,7 @@ class HomeController extends Controller
     public function submitContactForm(Request $request)
     {
         $validated = $request->validate([
-<<<<<<< HEAD
             // 'company_name' => 'string|max:255',
-=======
-            'company_name' => 'string|max:255',
->>>>>>> a0cdf8c882511000fac8e861652df1ac7876b66b
             'full_name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -109,14 +97,9 @@ class HomeController extends Controller
             'message' => 'required|string|max:5000'
         ]);
 
-<<<<<<< HEAD
         $contact = new CustomerSupport();
         $contact->supportType = "other";
         $contact->company = $request->company_name;
-=======
-        $contact = new ContactUs();
-        $contact->companyName = $request->company_name;
->>>>>>> a0cdf8c882511000fac8e861652df1ac7876b66b
         $contact->fullName = $request->full_name;
         $contact->phone = $request->phone;
         $contact->email = $request->email;
@@ -126,7 +109,6 @@ class HomeController extends Controller
         $contact->save();
         return redirect('/contactUs')->with('Success', " Your Request is Submitted Successfully! We will revert to you shortly.");
     }
-<<<<<<< HEAD
     public function requestaquoteForm()
     {
         return view('requestQuote');
@@ -157,8 +139,6 @@ class HomeController extends Controller
         return redirect('/requestaquote')->with('Success', " Your Request is Submitted Successfully! Our representatives will call you shortly.");
     }
 
-=======
->>>>>>> a0cdf8c882511000fac8e861652df1ac7876b66b
 
     public function privacyPolicy()
     {
