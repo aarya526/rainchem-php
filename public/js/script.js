@@ -116,3 +116,71 @@ $(document).ready(function () {
     $(window).on('scroll', checkInView);
     checkInView(); // Also check on page load
 });
+
+
+//Contract Manufacturing Form Submission AJAX Post
+
+$(document).ready(function () {
+
+    // $('#contactSubmitForm').on('submit', function (e) {
+
+    //     e.preventDefault(); // Prevent default form submission
+
+    //     $.ajax({
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         },
+    //         url: '/contactUsFormSubmit', // Replace with your route
+    //         type: 'POST',
+    //         data: $(this).serialize(), // Serialize form data
+    //         success: function (response) {
+    //             // $('#response').html('<p style="color:green;">' + response.message + '</p>');
+    //             $('.career-form-section .form-message').addClass('form-success');
+    //             $('.career-form-section .form-message').css({ 'display': 'block' });
+    //             $('#contactSubmitForm')[0].reset();
+    //         },
+    //         error: function (xhr) {
+    //             // Handle errors
+    //             const errors = xhr.responseJSON.errors;
+    //             let errorHtml = '<ul style="color:red;">';
+    //             for (const key in errors) {
+    //                 errorHtml += '<li>' + errors[key][0] + '</li>';
+    //             }
+    //             errorHtml += '</ul>';
+    //             console.log(errorHtml);
+    //             $('.career-form-section .form-message').addClass('form-fail');
+    //             $('.career-form-section .form-message').html('Error! Try Again Later.');
+    //         }
+    //     });
+    // });
+
+    $('#contractForm').on('submit', function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        $.ajax({
+            url: '/contractManufacturingForm', // Replace with your route
+            type: 'POST',
+            data: $(this).serialize(), // Serialize form data
+            success: function (response) {
+                // $('#response').html('<p style="color:green;">' + response.message + '</p>');
+                $('.form-section-1 .form-message').addClass('form-success');
+                $('.form-section-1 .form-message').css({ 'display': 'block' });
+                $('#contractForm')[0].reset();
+            },
+            error: function (xhr) {
+                // Handle errors
+                const errors = xhr.responseJSON.errors;
+                let errorHtml = '<ul style="color:red;">';
+                for (const key in errors) {
+                    errorHtml += '<li>' + errors[key][0] + '</li>';
+                }
+                errorHtml += '</ul>';
+                console.log(errorHtml);
+                $('.form-section-1 .form-message').addClass('form-fail');
+                $('.form-section-1 .form-message').html('Error! Try Again Later.');
+            }
+        });
+    });
+
+
+});

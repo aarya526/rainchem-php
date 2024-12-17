@@ -54,6 +54,14 @@ Route::get('/terms', [HomeController::class, 'terms']);
 
 Route::get('/vendorRegistration', [HomeController::class, 'vendorRegistration']);
 
+Route::post('/contractManufacturingForm', [HomeController::class, 'submitContractForm']);
+
+Route::post('/contactUsFormSubmit', [HomeController::class, 'submitContactForm']);
+
+Route::get('/requestaquote', [HomeController::class, 'requestaquoteForm']);
+
+Route::post('/requestaquotePost', [HomeController::class, 'requestaquoteFormPost']);
+
 //Admin Routes
 Route::get('/admin/dashboard', [AdminHomeController::class, 'dashboard']);
 Route::get('/admin/view-products', [AdminProductController::class, 'viewProducts']);
@@ -66,6 +74,7 @@ Route::get('/admin/add-category', [AdminCategoryController::class, 'addCategory'
 Route::post('/admin/create-category', [AdminCategoryController::class, 'createCategory'])->name('category.create');
 Route::get('/admin/edit-category/{id}', [AdminCategoryController::class, 'editCategory'])->name('category.edit');
 Route::put('/admin/edit-category', [AdminCategoryController::class, 'editCategoryPost'])->name('category.update');
+
 //End of Admin Routes
 
 Auth::routes();

@@ -1,16 +1,16 @@
 @push('title')
-    <title>Rainchem : Contact Us</title>
+    <title>Rainchem : Request a Quote</title>
 @endpush
 @extends('common.main')
 @section('main-section')
     <div class="hero-section" style="height: 347px; background-image : url('/img/contact us hero section image.jpg');">
         <div class="hero-section-backdrop"></div>
         <div class="hero-information">
-            <h1 class="hero-mainheading" style="font-size: 48px;">Contact Us</h1>
+            <h1 class="hero-mainheading" style="font-size: 48px;">Request a Quote</h1>
             <div class="navigation-bar">
                 <a href="/">Home</a>
                 <h4>/</h4>
-                <h4>Contact Us</h4>
+                <h4>Request a Quote</h4>
             </div>
         </div>
     </div>
@@ -19,8 +19,8 @@
         <div class="container">
             <div class="col-12">
                 <div class="heading-section-1">
-                    <h1 class="main-heading">We’re Just a Message Away!</h1>
-                    <p class="sub-heading">CONNECT WITH US EASILY</p>
+                    <h1 class="main-heading">Book an appointment for quotation</h1>
+                    <p class="sub-heading">Our Company Executive will call you on the date booked</p>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                             <div>{{ session('Success') }}</div>
                         </div>
                     @endif
-                    <form action="/contactUsFormSubmit" class="career-form" method="POST" id="contactSubmitForm">
+                    <form action="/requestaquotePost" class="career-form" method="POST" id="contactSubmitForm">
                         @csrf
                         <div class="container" style="align-items: center;">
                             <div class="col-6"
@@ -74,10 +74,10 @@
                             <div class="col-6" style="display: flex; flex-direction: column; gap: 14px;">
                                 <input type="text" name="subject" id="" class="input-field"
                                     placeholder="Subject*" required />
-                                <textarea name="message" id="" cols="30" rows="4" class="input-field" placeholder="Message*"
-                                    required></textarea>
-                                <button type="submit" class="btn btn-red" id="contactSubmitFormButton">Send
-                                    Message</button>
+                                <input type="text" name="appointmentDate" id="datepicker" class="input-field"
+                                    placeholder="Appointment Date*" required />
+                                <button type="submit" class="btn btn-red" id="contactSubmitFormButton">Book
+                                    Appointment</button>
                             </div>
                         </div>
                     </form>

@@ -2,14 +2,14 @@
 <div class="header-container">
     <div class="header-top">
         <div class="container">
-            <p>+91-9560177400/9810318183 &nbsp;&nbsp;&nbsp;&nbsp;support@rainchem.com</p>
+            <p>+91-9560177400/9810318183 &nbsp;&nbsp;&nbsp;&nbsp;services@rainchem.com</p>
         </div>
     </div>
     <div class="header-bottom">
         <div class="container">
             <div class="navbar-container">
                 <div class="logo">
-                    <a href="/"><img src="/img/rainchem new logo.png" alt=""></a>
+                    <a href="/"><img src="/img/rainchem new logo final..png" alt=""></a>
                 </div>
                 <div class="navbar-right-container">
                     {{-- <div class="container"> --}}
@@ -46,7 +46,7 @@
                                 </ul>
                             </li>
                             <li class="navbar-link"><a href="/aboutUs">about us</a></li>
-                            <li class="navbar-link"><a href="/blog">Sustainability</a></li>
+                            <li class="navbar-link"><a href="/careers">careers</a></li>
 
                             <li class="navbar-link"><a href="/contactUs">Contact Us</a></li>
                             {{-- <li class="navbar-link dropdown"><a href="#">services <i
@@ -62,7 +62,7 @@
                             <a href="/view-cart" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i>
                                 <span class="cart-item-counter">{{ session('cart_count', 0) }}</span></a>
                         </div>
-                        <a href="/contactUs" class="btn btn-black">Request a quote</a>
+                        <a href="/requestaquote" class="btn btn-black">Request a quote</a>
                     </div>
                     <button class="btn btn-sidebar" type="button" id="sidebar-open"><i
                             class="fa-solid fa-bars"></i></button>
@@ -107,7 +107,7 @@
                 <a href="/view-cart" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-item-counter">{{ session('cart_count', 0) }}</span></a>
             </div>
-            <a href="/contactUs" class="btn btn-red">Request a quote</a>
+            <a href="/requestaquote" class="btn btn-red">Request a quote</a>
         </div>
         <!------------Navbar sidebar menu END------------->
     </div>

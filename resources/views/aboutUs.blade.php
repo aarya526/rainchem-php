@@ -135,7 +135,7 @@
             <div class="col-6">
                 <div class="feature-card-4-wrapper">
                     <div class="heading-section-2">
-                        <h4>Our Values</h4>
+                        <h4>Our Values at a glance</h4>
                         <h1>We Strive to Positively Impact The World Around Us.</h1>
                     </div>
                     <div class="feature-card-4">

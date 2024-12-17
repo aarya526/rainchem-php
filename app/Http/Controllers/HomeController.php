@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\ContactUs;
+use App\Models\ContractManufacturing;
+use App\Models\CustomerSupport;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class HomeController extends Controller
 {
@@ -39,6 +43,29 @@ class HomeController extends Controller
         return view('singleProductDetails')->with($data);
     }
 
+    public function submitContractForm(Request $request)
+    {
+        $validated = $request->validate([
+            'company_name' => 'required|string|max:255',
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+        ]);
+        $contractForm = new CustomerSupport();
+        $contractForm->supportType = "contract";
+        $contractForm->company = $request->company_name;
+        $contractForm->fullName = $request->full_name;
+        $contractForm->phone = $request->phone;
+        $contractForm->email = $request->email;
+        $contractForm->subject = $request->subject;
+        $contractForm->message = $request->message;
+        $contractForm->dateCreated = now();
+        $contractForm->save();
+        return response()->json(['message' => 'Form submitted successfully!']);
+    }
+
     public function aboutUs()
     {
         return view('aboutUs');
@@ -58,6 +85,60 @@ class HomeController extends Controller
     {
         return view('contactUs');
     }
+
+    public function submitContactForm(Request $request)
+    {
+        $validated = $request->validate([
+            // 'company_name' => 'string|max:255',
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:5000'
+        ]);
+
+        $contact = new CustomerSupport();
+        $contact->supportType = "other";
+        $contact->company = $request->company_name;
+        $contact->fullName = $request->full_name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->dateCreated = now();
+        $contact->save();
+        return redirect('/contactUs')->with('Success', " Your Request is Submitted Successfully! We will revert to you shortly.");
+    }
+    public function requestaquoteForm()
+    {
+        return view('requestQuote');
+    }
+
+
+    public function requestaquoteFormPost(Request $request)
+    {
+        $validated = $request->validate([
+            // 'company_name' => 'string|max:255',
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'appointmentDate' => 'required|string|max:5000'
+        ]);
+
+        $contact = new CustomerSupport();
+        $contact->supportType = "quote";
+        $contact->company = $request->company_name;
+        $contact->fullName = $request->full_name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->appointmentDate = $request->appointmentDate;
+        $contact->dateCreated = now();
+        $contact->save();
+        return redirect('/requestaquote')->with('Success', " Your Request is Submitted Successfully! Our representatives will call you shortly.");
+    }
+
 
     public function privacyPolicy()
     {

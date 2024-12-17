@@ -3,7 +3,7 @@
 @endpush
 @extends('common.main')
 @section('main-section')
-    <div class="hero-section" style="height: 347px;">
+    <div class="hero-section" style="height: 347px; background-image:url('/img/career at rainchem hero section image.jpg');">
         <div class="hero-section-backdrop"></div>
         <div class="hero-information">
             <h1 class="hero-mainheading" style="font-size: 48px;">Careers</h1>
@@ -36,7 +36,7 @@
             <div class="col-6">
                 <div class="about-us-image-section-1">
                     <div class="about-us-image-section-1-backdrop"></div>
-                    <img src="/img/career at rainchem images.jpg" alt="" />
+                    <img src="/img/career at rainchem thumbnail image.jpg" alt="" />
                 </div>
             </div>
         </div>

@@ -29,8 +29,12 @@
                         <p>{{ $c->categoryDescription }}
                         </p>
                         <div class="feature-card-links-section">
-                            <a href="#" class="btn btn-black">Product Catalogue</a> <a href="/contactUs"
-                                class="btn btn-black">Request a Quote</a>
+                            @if ($c->categoryAdditionalFileUrl != null)
+                                <a href="{{ Storage::url($c->categoryAdditionalFileUrl) }}" target=”_blank”
+                                    class="btn btn-black">Product
+                                    Catalogue</a>
+                            @endif
+                            <a href="/contactUs" class="btn btn-black">Request a Quote</a>
                         </div>
                     </div>
                 </div>
