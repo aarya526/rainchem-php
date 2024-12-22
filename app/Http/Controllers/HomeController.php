@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContractManufacturingNotificationMail;
+use App\Mail\CustomerSupportNotificationMail;
+use App\Mail\RequestaQuoteNotificationMail;
 use App\Models\category;
 use App\Models\ContactUs;
 use App\Models\ContractManufacturing;
 use App\Models\CustomerSupport;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -16,7 +21,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $categories = category::where('isActive', 1)->paginate(4);
+        $categories = Cache::remember('active_categories_page_' . request('page', 1), 60, function () {
+            return Category::where('isActive', 1)->simplePaginate(4);
+        });
+
+        // $categories = category::where('isActive', 1)->paginate(4);
         return view('index', compact('categories'));
     }
 
@@ -63,6 +72,8 @@ class HomeController extends Controller
         $contractForm->message = $request->message;
         $contractForm->dateCreated = now();
         $contractForm->save();
+        // Send email to the submitted email address
+        Mail::to($contractForm->email)->send(new ContractManufacturingNotificationMail($contractForm));
         return response()->json(['message' => 'Form submitted successfully!']);
     }
 
@@ -107,6 +118,8 @@ class HomeController extends Controller
         $contact->message = $request->message;
         $contact->dateCreated = now();
         $contact->save();
+        // Send email to the submitted email address
+        Mail::to($contact->email)->send(new CustomerSupportNotificationMail($contact));
         return redirect('/contactUs')->with('Success', " Your Request is Submitted Successfully! We will revert to you shortly.");
     }
     public function requestaquoteForm()
@@ -136,6 +149,8 @@ class HomeController extends Controller
         $contact->appointmentDate = $request->appointmentDate;
         $contact->dateCreated = now();
         $contact->save();
+        // Send email to the submitted email address
+        Mail::to($contact->email)->send(new RequestaQuoteNotificationMail($contact));
         return redirect('/requestaquote')->with('Success', " Your Request is Submitted Successfully! Our representatives will call you shortly.");
     }
 

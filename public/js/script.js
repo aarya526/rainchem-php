@@ -154,10 +154,6 @@ $(document).ready(function () {
     //     });
     // });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a0cdf8c882511000fac8e861652df1ac7876b66b
     $('#contractForm').on('submit', function (e) {
         e.preventDefault(); // Prevent default form submission
 
